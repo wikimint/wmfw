@@ -3,8 +3,10 @@
 source 'https://rubygems.org'
 
 gem 'jekyll'
-gem 'minima-remote-theme', git: 'https://github.com/wikimint/wmfw.git'
+gem 'wmfw', git: 'https://github.com/wikimint/wmfw.git', branch: 'main'
 
 group :jekyll_plugins do
   gem 'jekyll-feed'
+  gem 'jekyll-remote-theme'
+  gem 'minima'
 end

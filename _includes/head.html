@@ -2,17 +2,11 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>
-    {% if page.cname and page.role %}
-      {{ page.cname }} - {{ page.role }}
-    {% elsif page.cname %}
-      {{ page.cname }}
-    {% else %}
-      {{ page.title }}
-    {% endif %}
-  </title>
-  {% if page.cname %}
-  <meta name="description" content="{{ content | truncate: 160 }}"/>
+
+  <title>{{ site.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
+  {% if page.excerpt %}
+  <meta name="description" content="{{ page.excerpt | truncate: 160 | escape}}"/>
   {% else %}
   <meta name="description" content="{{ page.description | truncate: 160 }}"/>
   {% endif %}

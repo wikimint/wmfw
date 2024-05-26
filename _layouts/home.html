@@ -1,4 +1,63 @@
 ---
 layout: base
 ---
-{{ content }}
+
+
+
+<div class="container p-0">
+  <h2 class="text-dark fs-4 fw-normal">Recently added projects</h2>
+  <p>
+    Developers, tech creators and software application enthusiasts like you frequently contribute to this repository. You'll find recenly added latest freeware projects here:
+  </p>
+  <div class="row p-0" id="projects">
+      {%- for post in site.projects limit:12 -%}
+        <div class="col-md-6">
+          <div class="shadow-sm border bg-white  mb-3">
+            <div class="row p-4">
+              <div class="col-3">
+                {% include icons/default.svg %}
+              </div>
+              <div class="col-9">
+                <h3><a class="fs-5 fw-normal" href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+                <p>{{ post.excerpt | truncate: 160 }}</p>
+              </div>
+            </div>
+
+            <div class="row w-100 mx-auto border-top p-3 bg-light">
+              <div class="col-md-6">
+                {% if post.type %}
+                <span class="small text-success">
+                  {{ post.type }}
+                </span>
+                  {% endif %}
+                
+                  {% if post.cat %}
+                  <span class="d-block">
+                  {{ post.cat }}
+                </span>
+                  {% endif %}
+              </div>
+              <div class="col-md-6"></div>
+              </div>
+
+
+          </div>
+        </div>
+
+
+      {%- endfor -%}
+    </div>
+  </div>
+
+
+  {{ content }}
+
+<style>
+  main{
+    background: var(--bs-light);
+  }
+  #projects svg{
+    fill: var(--bs-light);
+  }
+</style>
+

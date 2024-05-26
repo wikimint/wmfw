@@ -8,6 +8,14 @@ layout: base
   <h1>{{ page.title }}</h1>
 <p>Category: {{ page.category }}</p>
 <div class="post-content">
+  {{ page.category }}
+
+  {% assign category_path = page.path | split: '/' %}
+{% assign category = category_path[1] %}
+
+Category: {{ category }}
+
+
   {{ content }}
 </div>
 

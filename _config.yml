@@ -29,6 +29,23 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
 
+collections:
+  projects:
+    output: true
+permalink: /:title
+
+defaults:
+  - scope:
+      path: "_projects"
+      type: "projects"
+    values:
+      permalink: /:title
+
+
+disqus:
+  shortname: freeware-projects
+
+
 # Build settings
 theme: minima
 plugins:

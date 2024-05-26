@@ -1,0 +1,82 @@
+---
+layout: base
+---
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+<div class="row">
+  <div class="col-md-8">
+    <h1 class="display-6 lead fw-normal fs-3">{{ page.title }}</h1>
+    {% if page.type %}
+                <span class="small bg-success-subtle bordre-success rounded-5 py-1 px-3 text-success me-3">
+                  {{ page.type }}
+                </span>
+                  {% endif %}
+    {% if page.cat %}
+    <span class="lead">
+    {{ page.cat }}
+  </span>
+    {% endif %}
+
+                
+
+  </div>
+  <div class="col-md-4">
+{% if page.link %}
+<div class="sticky-top" style="top:100px; z-index:1">
+<a href="{{ page.link }}" target="_blank" rel="nofollow">
+  <button class="btn btn-primary btn-lg rounded-0 w-100">Visit site</button>
+</a>
+</div>
+{% endif %}
+  </div>
+</div>
+
+<div class="row mt-3">
+  <div class="col-md-8">
+    {{ content }}
+  </div>
+  <div class="col-md-4">
+
+    {% if page.cat %}
+    <span class="small text-secondary d-block">Category</span>
+    <div class="d-block mt-1 mb-4">
+      <span class="lead fw-medium">
+      {{ page.cat }}
+      </span>
+      </div>
+    {% endif %}
+
+      {% if page.tags %}
+      <span class="small text-secondary">Taged under</span>
+      <div class="d-block mt-3 mb-4">
+      {% for tag in page.tags %}
+      <span class="small d-inline-flex bg-secondary-subtle border-secondary rounded-5 py-1 px-3 text-secondary me-1 mb-1">
+      {{ tag }}
+      </span>
+      {% endfor %}
+    {% endif %}
+
+  </div>
+</div>
+
+
+
+  
+
+
+</div>
+
+
+
+
+  {%- if site.disqus.shortname -%}
+    {%- include disqus_comments.html -%}
+  {%- endif -%}
+
+
+    <!-- {% assign category_path = page.path | split: '/' %}
+{% assign category = category_path[1] %}
+
+Category: {{ category }} -->
+
+</article>

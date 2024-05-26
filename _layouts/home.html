@@ -1,13 +1,22 @@
 ---
 layout: base
 ---
-
+<div class="row my-3">
+  <div class="col-md-8">
+<h1 class="display-6 text-dark">Explore freeware software projects</h1>
+<p class="my-4">Discover a world of powerful, free, and open-source software at <strong>Freeware</strong>. Our platform is dedicated to curating and showcasing the best free-tier tools, open-source projects, and invaluable resources available on the web. Whether you're a developer, a tech enthusiast, or simply looking for cost-effective solutions, Freeware is your go-to hub for all things free and open-source.</p>
+</div>
+<div class="col-md-4">
+<img class="mx-auto d-block" width="200px" height="auto" src="https://img.icons8.com/external-flaticons-flat-flat-icons/300/external-free-100-most-used-icons-flaticons-flat-flat-icons-2.png" alt="Freeware projects includes free-tier, open-source and more"/>
+</div>
+</div>
+  
 
 
 <div class="container p-0">
   <h2 class="text-dark fs-4 fw-normal">Recently added projects</h2>
   <p>
-    Developers, tech creators and software application enthusiasts like you frequently contribute to this repository. You'll find recenly added latest freeware projects here:
+Developers, tech creators and software application enthusiasts like you frequently contribute to this repository. You'll find recenly added latest freeware projects here. Dive in and explore our extensive collection of software and tools designed to empower your creativity and productivity without breaking the bank.
   </p>
   <div class="row p-0" id="projects">
       {%- for post in site.projects limit:12 -%}
@@ -15,11 +24,23 @@ layout: base
           <div class="shadow-sm border bg-white  mb-3">
             <div class="row p-4">
               <div class="col-3">
+                {% if post.icon %}
+                <img width="150px" height="auto" class="mt-2" alt="{{ post.title }}" src="/icons/{{ post.icon }}"/>
+                {% else %}
                 {% include icons/default.svg %}
+                {% endif %}
               </div>
               <div class="col-9">
                 <h3><a class="fs-5 fw-normal" href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
                 <p>{{ post.excerpt | truncate: 160 }}</p>
+                Added by 
+                {% assign author_count = post.authors | size %}
+                {% for author in post.authors limit: 1 %}
+                  <span class="text-primary"><i>{{ author }}</i></span>
+                  {% if author_count > 1 %} and {{ author_count | minus: 1 }} more{% endif %}
+                {% endfor %}
+                
+
               </div>
             </div>
 

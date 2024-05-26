@@ -2,6 +2,7 @@
 layout: project
 title:  "Bootstrap framework - UI development"
 link: https://getbootstrap.com/
+icon: bootstrap-framework.jpg
 cat: Framework
 type: Opensource
 tags: 
@@ -9,7 +10,9 @@ tags:
   - UI
   - CSS
   - Frameworks
-
+authors:
+  - selvaklnc
+  - selva
 ---
 Bootstrap, developed by Twitter, is a popular open-source front-end framework designed for creating responsive and mobile-first web applications. It offers a collection of CSS and JavaScript tools that simplify the development process, allowing developers to build visually appealing and functional websites quickly and efficiently.
 

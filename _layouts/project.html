@@ -2,103 +2,149 @@
 layout: base
 ---
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
-
-<div class="row">
-  <div class="col-md-8">
-    <h1 class="display-6 lead fw-normal fs-3">{{ page.title }}</h1>
-    {% if page.type %}
-                <span class="small bg-success-subtle bordre-success rounded-5 py-1 px-3 text-success me-3">
-                  {{ page.type }}
-                </span>
-                  {% endif %}
-    {% if page.cat %}
-    <span class="lead">
-    {{ page.cat }}
-  </span>
-    {% endif %}
-
-                
-
-  </div>
-  <div class="col-md-4">
-{% if page.link %}
-<div class="sticky-top" style="top:100px; z-index:1">
-<a href="{{ page.link }}" target="_blank" rel="nofollow">
-  <button class="btn btn-primary btn-lg rounded-0 w-100">Visit site</button>
-</a>
-</div>
-{% endif %}
-  </div>
-</div>
-
-<div class="row mt-3">
-  <div class="col-md-8">
-
-    <ul class="nav nav-tabs mt-4 mx-0" id="myTab" role="tablist">
-      {% if content %}
-      <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Details</button>
-      </li>
-      {% endif %}
-      <li class="nav-item" role="presentation">
-        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Reviews</button>
-      </li>
-    </ul>
-    <div class="tab-content mt-4" id="myTabContent">
-      {% if content %}
-      <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
-        {{ content }}
+   <div class="row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-2">
+            {% if page.icon %}
+            <img width="150px" height="auto" class="mt-2" alt="{{ page.title }}" src="/icons/{{ page.icon }}"/>
+            {% else %}
+            {% include icons/default.svg %}
+            {% endif %}</div>
+          <div class="col-10 mb-4 mb-md-0">
+            <h1 class="display-6 lead fw-normal fs-3">{{ page.title }}</h1>
+         {% if page.type %}
+         <span class="small bg-success-subtle bordre-success rounded-5 py-1 px-3 text-success me-3">
+         {{ page.type }}
+         </span>
+         {% endif %}
+         {% if page.cat %}
+         <span class="lead">
+         {{ page.cat }}
+         </span>
+         {% endif %}
+          </div>
+        </div>
       </div>
-      {% endif %}
-      <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-        {%- if site.disqus.shortname -%}
-        {%- include disqus_comments.html -%}
-      {%- endif -%}
+      <div class="col-md-4">
+         {% if page.link %}
+         <div class="sticky-top" style="top:100px; z-index:1">
+            <a class="" href="{{ page.link }}" target="_blank" rel="nofollow">
+            <button class="btn btn-primary btn-lg rounded-0 w-100">Visit site</button>
+            </a>
+         </div>
+         {% endif %}
+      </div>
+   </div>
+   <div class="row mt-3">
+      <div class="col-md-8">
+         <ul class="nav nav-tabs mt-4 mx-0" id="myTab" role="tablist">
+            {% if content %}
+            <li class="nav-item" role="presentation">
+               <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Details</button>
+            </li>
+            {% endif %}
+            <li class="nav-item" role="presentation">
+               <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Reviews</button>
+            </li>
+         </ul>
+         <div class="tab-content mt-4" id="myTabContent">
+            {% if content %}
+            <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+               {{ content }}
+            </div>
+            {% endif %}
+            <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+               {%- if site.disqus.shortname -%}
+               {%- include disqus_comments.html -%}
+               {%- endif -%}
+            </div>
+         </div>
+      </div>
+      <div class="col-md-4">
+         {% if page.cat %}
+         <span class="small text-secondary d-block">Category</span>
+         <div class="d-block mt-1 mb-4">
+            <span class="lead fw-medium">
+            {{ page.cat }}
+            </span>
+         </div>
+         {% endif %}
+         {% if page.tags %}
+         <span class="small text-secondary">Tagged under</span>
+         <div class="d-block mt-3 mb-4">
+            {% for tag in page.tags %}
+            <span class="small d-inline-flex bg-secondary-subtle border-secondary rounded-5 py-1 px-3 text-secondary me-1 mb-2">
+            {{ tag }}
+            </span>
+            {% endfor %}
+            {% endif %}
+
+            {% if page.authors %}
+            {% assign author_count = page.authors | size %}
+            <span class="mt-4 d-block"></span>
+            <h3 class="fs-5 mt-3 text-secondary d-inline">Authors</h3> 
+              <span class="small ms-1 bg-secondary-subtle rounded-circle p-1 px-2 text-secondary">
+                {% for author in page.authors limit: 1 %}
+                {% if author_count > 1 %} {{ author_count | minus: 0 }}{% endif %}
+                {% endfor %}
+              </span>
+
+
+            <div class="d-block mt-3 mb-4">
+               {% for author in page.authors %}
+               <span class="small d-inline-flex bg-primary-subtle border-primary rounded-1 py-1 px-3 text-primary me-1 mb-2">
+               {{ author }}
+               </span>
+               {% endfor %}
+               {% endif %}
+         </div>
+      </div>
+   </div>
+
+ {% if page.cat %}  
+<hr class="border"/>
+<h2 class="text-dark fs-4 fw-normal mb-4">Related freeware projects</h2>
+<div class="row p-0" id="projects">
+  {%- for post in site.projects limit:12 -%}
+  {% if page.cat == post.cat and page.name != post.name %}
+    <div class="col-md-6">
+      <div class="shadow-sm border bg-white  mb-3">
+        <div class="row p-4">
+          <div class="col-3">
+            {% include icons/default.svg %}
+          </div>
+          <div class="col-9">
+            <h3><a class="fs-5 fw-normal" href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+            <p>{{ post.excerpt | truncate: 160 }}</p>
+          </div>
+        </div>
+
+        <div class="row w-100 mx-auto border-top p-3 bg-light">
+          <div class="col-md-6">
+            {% if post.type %}
+            <span class="small text-success">
+              {{ post.type }}
+            </span>
+              {% endif %}
+            
+              {% if post.cat %}
+              <span class="d-block">
+              {{ post.cat }}
+            </span>
+              {% endif %}
+          </div>
+          <div class="col-md-6"></div>
+          </div>
+
       </div>
     </div>
-
-
-  </div>
-  <div class="col-md-4">
-
-    {% if page.cat %}
-    <span class="small text-secondary d-block">Category</span>
-    <div class="d-block mt-1 mb-4">
-      <span class="lead fw-medium">
-      {{ page.cat }}
-      </span>
-      </div>
     {% endif %}
 
-      {% if page.tags %}
-      <span class="small text-secondary">Taged under</span>
-      <div class="d-block mt-3 mb-4">
-      {% for tag in page.tags %}
-      <span class="small d-inline-flex bg-secondary-subtle border-secondary rounded-5 py-1 px-3 text-secondary me-1 mb-1">
-      {{ tag }}
-      </span>
-      {% endfor %}
-    {% endif %}
 
-  </div>
+  {%- endfor -%}
 </div>
+{% endif %}
 
-
-
-  
-
-
-</div>
-
-
-
-
-
-
-
-    <!-- {% assign category_path = page.path | split: '/' %}
-{% assign category = category_path[1] %}
-
-Category: {{ category }} -->
 
 </article>

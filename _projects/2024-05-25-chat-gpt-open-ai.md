@@ -2,13 +2,15 @@
 layout: project
 title:  ChatGPT by OpenAI - Generative AI
 link: https://chatgpt.com/
+icon: chat-gpt.png
 cat: Artificial intelligence
 type: Freeware
 tags: 
   - Generative AI
   - Machine learning
   - Artificial intelligence
-description: You’ll find this post in your  directory. Go ahead and edit it and re-build the site to see your changes.
+authors:
+  - selvaklnc
 ---
 ChatGPT, developed by OpenAI, is a state-of-the-art conversational AI model based on the GPT-4 architecture. This AI system is designed to engage in natural, human-like conversations, understanding context and providing coherent responses. ChatGPT leverages deep learning techniques to generate text, making it capable of performing a wide range of tasks, including answering questions, providing explanations, offering recommendations, and even engaging in creative writing.
 

@@ -7,8 +7,8 @@
 
       for (var i = 0; i < results.length; i++) {  // Iterate over them and generate html
         var item = store[results[i].ref];
-        appendString += '<li><a href="' + item.url + '"><h3>' + item.title + '</h3></a>';
-        appendString += '<p>' + item.content.substring(0, 250) + '...</p></li>';
+        appendString += '<div class="col-md-6 p-3 border shadow-sm"><div class="row"><div class="col-3"><img width="150px" height="auto" class="mt-2" alt="'+ item.title +'" src="/icons/'+ item.icon +'"/> </div><div class="col-9"><a href="' + item.url + '"><h3 class="fs-5 fw-normal mt-1">' + item.title + '</h3></a>';
+        appendString += '<p>' + item.content.substring(0, 250) + '...</p></div></div></div>';
       }
 
       searchResults.innerHTML = appendString;

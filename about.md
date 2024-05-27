@@ -71,6 +71,6 @@ permalink: /about
 
 </div>
 <div class="col-md-4">
-<img class="mx-auto d-block" width="200px" height="auto" src="https://img.icons8.com/external-flaticons-flat-flat-icons/300/external-free-100-most-used-icons-flaticons-flat-flat-icons-2.png" alt="Freeware projects includes free-tier, open-source and more"/>
+<img class="mx-auto d-block" width="200px" height="auto" src="https://img.icons8.com/ios/300/228BE6/open-source.png" alt="Freeware projects includes free-tier, open-source and more"/>
 </div>
 </div>

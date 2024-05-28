@@ -7,8 +7,8 @@ noindex: true
 
 <div class="header-search">
   <form class="header-search-form" action="/search/" method="get">
-    <input type="text" id="search-box" name="query">
-    <input type="submit" value="search">
+    <input type="text" id="search-box" name="query"/>
+    <input type="submit" value="search"/>
   </form>
 </div>
 <div class="container">

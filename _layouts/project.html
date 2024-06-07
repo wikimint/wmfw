@@ -1,6 +1,8 @@
 ---
 layout: base
 ---
+<script src="/assets/js/project.js"></script>
+
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
    <div class="row">
       <div class="col-md-8">
@@ -44,11 +46,6 @@ layout: base
                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Details</button>
             </li>
             {% endif %}
-            {% if page.installation %}
-            <li class="nav-item" role="presentation">
-               <button class="nav-link" id="install-tab" data-bs-toggle="tab" data-bs-target="#install-tab-pane" type="button" role="tab" aria-controls="install-tab-pane" aria-selected="true">Installation</button>
-            </li>
-            {% endif %}
             <li class="nav-item" role="presentation">
                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Reviews</button>
             </li>
@@ -59,15 +56,6 @@ layout: base
                {{ content }}
             </div>
             {% endif %}
-
-
-            {% if page.installation %}
-            <div class="tab-pane fade" id="install-tab-pane" role="tabpanel" aria-labelledby="install-tab" tabindex="0">
-              {{ page.installation | markdownify }}
-            </div>
-            {% endif %}
-
-
 
             <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
                {%- if site.disqus.shortname -%}
@@ -118,6 +106,7 @@ layout: base
    </div>
 
  {% if page.cat %}  
+<div id="relatedProjects"> 
 <hr class="border"/>
 <h2 class="text-dark fs-4 fw-normal mb-4">Related freeware projects</h2>
 <div class="row p-0" id="projects">
@@ -158,6 +147,7 @@ layout: base
 
 
   {%- endfor -%}
+</div>
 </div>
 {% endif %}
 

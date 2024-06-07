@@ -23,32 +23,6 @@ tags:
   - DNS Configuration
 authors:
   - selvaklnc
-installation: |
-  ### How to Use 1.1.1.1
-  You can configure your device or router to use 1.1.1.1 as its DNS resolver. Here’s an example of how to do it on a Windows 10 computer:
-
-  #### Open Network Settings:
-  - Click on the network icon in the taskbar.
-  - Click on "Network & Internet settings".
-  - Click on "Change adapter options".
-
-  #### Select Your Network:
-  - Right-click on your active network connection and select "Properties".
-
-  #### Change DNS Settings:
-  - Select "Internet Protocol Version 4 (TCP/IPv4)" and click "Properties".
-  - Select "Use the following DNS server addresses".
-  - Enter `1.1.1.1` as the preferred DNS server.
-  - Optionally, you can enter `1.0.0.1` as the alternate DNS server.
-  - Click "OK" to save the settings.
-
-  ### Example Usage Scenario
-  Suppose you're experiencing slow internet performance and suspect that your ISP's DNS resolver is part of the problem. You decide to switch to Cloudflare's 1.1.1.1 DNS service to see if it improves your browsing speed and security.
-
-  - You follow the steps to configure your computer to use 1.1.1.1 as the DNS resolver.
-  - After making the switch, you notice that websites are loading faster because 1.1.1.1 resolves domain names more quickly than your ISP's DNS.
-  - You also feel more secure knowing that your DNS queries are encrypted and that Cloudflare isn't selling your browsing data to third parties.
-
 ---
 1.1.1.1 is a public DNS resolver service provided by Cloudflare, in partnership with APNIC. The purpose of this service is to offer a fast and privacy-focused DNS resolution service to users around the world.
 
@@ -70,3 +44,28 @@ DNS (Domain Name System) is essentially the phonebook of the internet. When you 
 - **Setup Instructions**: Cloudflare provides detailed setup guides for various devices and operating systems on their website.
 
 By using Cloudflare’s 1.1.1.1 service, you can enhance your internet speed, privacy, and security with a simple DNS configuration change.
+
+### How to Use 1.1.1.1
+You can configure your device or router to use 1.1.1.1 as its DNS resolver. Here’s an example of how to do it on a Windows 10 computer:
+
+#### Open Network Settings:
+- Click on the network icon in the taskbar.
+- Click on "Network & Internet settings".
+- Click on "Change adapter options".
+
+#### Select Your Network:
+- Right-click on your active network connection and select "Properties".
+
+#### Change DNS Settings:
+- Select "Internet Protocol Version 4 (TCP/IPv4)" and click "Properties".
+- Select "Use the following DNS server addresses".
+- Enter `1.1.1.1` as the preferred DNS server.
+- Optionally, you can enter `1.0.0.1` as the alternate DNS server.
+- Click "OK" to save the settings.
+
+### Example Usage Scenario
+Suppose you're experiencing slow internet performance and suspect that your ISP's DNS resolver is part of the problem. You decide to switch to Cloudflare's 1.1.1.1 DNS service to see if it improves your browsing speed and security.
+
+- You follow the steps to configure your computer to use 1.1.1.1 as the DNS resolver.
+- After making the switch, you notice that websites are loading faster because 1.1.1.1 resolves domain names more quickly than your ISP's DNS.
+- You also feel more secure knowing that your DNS queries are encrypted and that Cloudflare isn't selling your browsing data to third parties.

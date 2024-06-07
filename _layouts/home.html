@@ -20,8 +20,8 @@ Developers, tech creators and software application enthusiasts like you frequent
   </p>
   <div class="row p-0" id="projects">
       {%- for post in site.projects limit:12 -%}
-        <div class="col-md-6">
-          <div class="shadow-sm border bg-white  mb-3">
+        <div class="col-md-6 project">
+          <div class="shadow-sm border bg-white mb-3">
             <div class="row p-4">
               <div class="col-3">
                 {% if post.icon %}
@@ -31,20 +31,19 @@ Developers, tech creators and software application enthusiasts like you frequent
                 {% endif %}
               </div>
               <div class="col-9">
-                <h3><a class="fs-5 fw-normal" href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-                <p>{{ post.excerpt | truncate: 160 }}</p>
-                Added by 
+                <h3><a class="fs-5 fw-normal project-title" href="{{ post.url | relative_url }}" data-link="{{ post.link }}">{{ post.title }}</a></h3>
+                {{ post.excerpt | truncate: 160 }}
+                <div class="text-secondary">Added by 
                 {% assign author_count = post.authors | size %}
                 {% for author in post.authors limit: 1 %}
                   <span class="text-primary"><i>{{ author }}</i></span>
                   {% if author_count > 1 %} and {{ author_count | minus: 1 }} more{% endif %}
                 {% endfor %}
-                
-
+              </div>
               </div>
             </div>
 
-            <div class="row w-100 mx-auto border-top p-3 bg-light">
+            <div class="row w-100 mx-auto border-top p-3 py-2 bg-light">
               <div class="col-md-6">
                 {% if post.type %}
                 <span class="small text-success">
@@ -58,7 +57,9 @@ Developers, tech creators and software application enthusiasts like you frequent
                 </span>
                   {% endif %}
               </div>
-              <div class="col-md-6"></div>
+              <div class="col-md-6 d-flex align-items-center">
+                <button class="btn btn-outline-primary ms-auto more-details" data-bs-toggle="modal" data-bs-target="#moreDetails">More details</button>
+              </div>
               </div>
 
 
@@ -80,5 +81,40 @@ Developers, tech creators and software application enthusiasts like you frequent
   #projects svg{
     fill: var(--bs-light);
   }
+  .project p{
+    margin-bottom:6px ! important;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .project h3 a{
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 </style>
 
+
+
+<!-- Modal -->
+<div class="modal fade" id="moreDetails" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title fs-5 text-truncate" id="projectTitle">Site name</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-0" style="overflow:hidden;">
+<iframe id="morePage" src="about:blank" class="p-0 m-0 border-0 w-100" style="margin-top:-60px;width:100%;height:calc(100vh - 190px);"></iframe>
+    </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a id="projectLink" href="#site" target="_blank"><button type="button" class="btn btn-primary">Visit site</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/home.js"></script>

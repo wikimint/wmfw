@@ -27,7 +27,7 @@ Developers, tech creators and software application enthusiasts like you frequent
                 {% if post.icon %}
                 <img width="150px" height="auto" class="mt-2" alt="{{ post.title }}" src="/icons/{{ post.icon }}"/>
                 {% else %}
-                {% include icons/default.svg %}
+                <img width="150px" height="auto" class="mt-2" alt="{{ post.title }}" src="/assets/icons/{{ post.cat | downcase | replace: ' ', '-' }}.jpg"/>
                 {% endif %}
               </div>
               <div class="col-9">

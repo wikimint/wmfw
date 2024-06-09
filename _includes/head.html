@@ -9,7 +9,8 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
   {%- feed_meta -%}
-  {%- if jekyll.environment == 'production' -%}
+
+  {%- if site.url == 'https://freeware.wikimint.com' -%}
     {%- include google-analytics.html -%}
   {%- endif -%}
 

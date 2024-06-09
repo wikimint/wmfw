@@ -2,6 +2,7 @@
 layout: project
 title: 1.1.1.1 - Free public DNS resolver by Cloudflare
 link: https://one.one.one.one
+canonical_url: https://one.one.one.one
 icon: chat-gpt.png
 cat: DNS
 type: Freeware

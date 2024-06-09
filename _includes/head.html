@@ -2,18 +2,11 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>{{ site.title }}</title>
-
+  {% include seo.html %}
   <link rel="icon" href="/favicon.ico" sizes="120x120">
   <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
-  {% if page.excerpt %}
-  <meta name="description" content="{{ page.excerpt | truncate: 160 | escape}}"/>
-  {% else %}
-  <meta name="description" content="{{ page.description | truncate: 160 }}"/>
-  {% endif %}
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
   {%- feed_meta -%}
   {%- if jekyll.environment == 'production' and site.google_analytics -%}

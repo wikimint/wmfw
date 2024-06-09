@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: 
+Sitemap: https://freeware.wikimint.com/sitemap.xml

@@ -1,0 +1,184 @@
+{%- if seo.title -%}
+<title>{{ seo.title | truncate: 63 | xml_escape }}</title>
+{%- else if page.title -%}
+<title>{{ page.title  | truncate: 63| xml_escape }}</title>
+{%- else -%}
+<title>{{ site.title  | truncate: 63| xml_escape }}</title>
+{%- endif -%}
+{% if page.description %}
+<meta name="description" content="{{ page.description | truncate: 163 }}"/>
+{% else if page.excerpt %}
+<meta name="description" content="{{ page.excerpt | truncate: 163 | escape}}"/>
+{% else if seo.description %}
+<meta name="description" content="{{ seo.description | truncate: 163 | xml_escape }}">
+{% endif %}
+{% if page.canonical_url %}
+<link rel="canonical" href="{{ page.canonical_url | xml_escape }}">
+{% else %}
+<link rel="canonical" href="{{ site.url }}{{ page.url | xml_escape }}">
+{% endif %}
+
+
+<!-- Open Graph -->
+<meta property="og:title" content="{{ seo.title | xml_escape }}">
+<meta property="og:description" content="{{ seo.description | xml_escape }}">
+<meta property="og:url" content="{{ page.canonical_url | default: seo.canonical_url | xml_escape }}">
+<meta property="og:site_name" content="{{ site.title | xml_escape }}">
+<meta property="og:type" content="website">
+<meta property="og:image" content="{{ page.image | default: seo.image | default: site.social.default_image | xml_escape }}">
+{%- if site.social.facebook.app_id -%}
+<meta property="fb:app_id" content="{{ site.social.facebook.app_id }}">
+{%- endif -%}
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ seo.title | xml_escape }}">
+<meta name="twitter:description" content="{{ seo.description | xml_escape }}">
+<meta name="twitter:image" content="{{ page.image | default: seo.image | default: site.social.default_image | xml_escape }}">
+<meta name="twitter:site" content="@{{ site.social.twitter }}">
+<meta name="twitter:creator" content="@{{ site.social.twitter }}">
+
+<!-- Schema.org -->
+{%- if seo.schema -%}
+<script type="application/ld+json">
+{{ seo.schema | jsonify | strip_newlines }}
+</script>
+{%- endif -%}
+
+
+<script type='application/ld+json'>
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.wikimint.com/#breadcrumblist",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "@id": "https://www.wikimint.com/#listItem",
+              "position": 1,
+              "name": "Home"
+            }
+          ]
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://www.wikimint.com/#organization",
+          "name": "Wikimint",
+          "url": "https://www.wikimint.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhbwjrlQVoF9bOh6gNaqEWGjknNoJm7lhY2Jvc7r0ZQ3vDh0o3ZwFM1TuU7FQyUuuACFZLoYZvs8BggxMmQ9usiabMWfpefqhMWXL-bGg_w_KAGE1urvCEZlyOgFof6oHw2tPJ9aoty8lC1jNYQdERMOffe77jvQfrE22OYdA3kH3OIwgcvyt6B646kZQ_-/s320/wikimint.png",
+            "@id": "https://www.wikimint.com/#organizationLogo",
+            "width": 520,
+            "height": 130,
+            "caption": "Wikimint Logo"
+          },
+          "image": {
+            "@id": "https://www.wikimint.com/#organizationLogo"
+          },
+          "sameAs": [
+            "https://www.facebook.com/wikimintcreations",
+            "https://twitter.com/wikimint",
+            "https://www.youtube.com/channel/UCWxiax3p4uu8qQhfVPak2VA",
+            "https://www.linkedin.com/company/wikimintcreations",
+            "https://www.wikimint.com",
+            "https://github.com/wikimint"
+          ],
+          "email": "support@wikimint.com"
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.wikimint.com/#webpage",
+          "url": "https://www.wikimint.com/",
+          "name": "Wikimint - Learn new things everyday",
+          "description": "Wikimint is one of the largest business and marketing related reference resource site for students and entrepreneurs with easy to understand articles on all topics for mastering the basics and beyond.",
+          "inLanguage": "en-US",
+          "isPartOf": {
+            "@id": "https://www.wikimint.com/#website"
+          },
+          "breadcrumb": {
+            "@id": "https://www.wikimint.com/#breadcrumblist"
+          },
+          "datePublished": "2023-12-19T03:26:15-05:00",
+          "dateModified": "2024-04-02T08:07:46-04:00",
+          "reviewedBy": {
+            "@type": "Person",
+            "@id": "https://selvakumaran.is-a.dev#author",
+            "url": "https://selvakumaran.is-a.dev",
+            "name": "Selvakumaran Krishnan",
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgsedhv_iq4CSoaU6gmLYevE8LAvjHCJ0DlfJMjqesrtRdO_gGC7FO1AC9Bnx-zKl_3Nr4xEauK8MOyxB2HW-14MMiYBkm71uk7VNGMh1YUwjRP1b9C-XrMB21HkaxBqwr1vrxhwsu3f2OcLlq1AUDbvSuv9_3V4EFl5XnrKcr-Gk4z0zZv343tKG8k6AmJ/s1600-rw/Selvakumaran%20Krishnan.jpg"
+            },
+            "sameAs": [
+              "https://facebook.com/selvakumarank",
+              "https://twitter.com/selvakumarankri",
+              "https://linkedin.com/in/selvakumaran-krishnan",
+              "https://profiles.wordpress.org/selvaklnc/"
+            ],
+            "description": "A hard worker passionate about web designing, online publishing, blog writing, code programming, SEO, digital marketing, and framework development. I started on my journey in web designing in 2008, exploring various web 2.0 platforms, and later delved into code programming in 2014. Since then, I have witnessed the evolution of several open-source libraries, tools, themes, templates, datasets, plugins, widgets, and frameworks for web development. Along the path of honing my skills and knowledge, I have also undertaken numerous freelance projects, including WordPress sites, SEO, digital marketing, and web-related products.",
+            "jobTitle": "Full Stack Developer",
+            "alumniOf": [
+              {
+                "@type": "EducationalOrganization",
+                "name": "Annamalai University",
+                "sameAs": "https://annamalaiuniversity.ac.in/index.php"
+              }
+            ],
+            "knowsAbout": [
+              {
+                "@type": "Thing",
+                "name": "WordPress",
+                "url": "https://wordpress.org",
+                "sameAs": [
+                  "https://en.wikipedia.org/wiki/WordPress"
+                ]
+              },
+              {
+                "@type": "Thing",
+                "name": "Web Development"
+              },
+              {
+                "@type": "Thing",
+                "name": "Digital Marketing"
+              },
+              {
+                "@type": "Thing",
+                "name": "SEO"
+              },
+              {
+                "@type": "Thing",
+                "name": "Blogging"
+              },
+              {
+                "@type": "Thing",
+                "name": "Content Marketing"
+              }
+            ]
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.wikimint.com/#website",
+          "url": "https://www.wikimint.com/",
+          "name": "Wikimint",
+          "description": "Learn new things everyday",
+          "inLanguage": "en-US",
+          "publisher": {
+            "@id": "https://www.wikimint.com/#organization"
+          },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://www.wikimint.com/search?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        }
+      ]
+    }
+    
+    </script>

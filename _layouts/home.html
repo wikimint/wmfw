@@ -19,7 +19,7 @@ layout: base
 Developers, tech creators and software application enthusiasts like you frequently contribute to this repository. You'll find recenly added latest freeware projects here. Dive in and explore our extensive collection of software and tools designed to empower your creativity and productivity without breaking the bank.
   </p>
   <div class="row p-0" id="projects">
-      {%- for post in site.projects limit:12 -%}
+      {%- for post in site.projects limit:20 -%}
         <div class="col-md-6 project">
           <div class="shadow-sm border bg-white mb-3">
             <div class="row p-4">
@@ -33,10 +33,10 @@ Developers, tech creators and software application enthusiasts like you frequent
               <div class="col-9">
                 <h3><a class="fs-5 fw-normal project-title" href="{{ post.url | relative_url }}" data-link="{{ post.link }}">{{ post.title }}</a></h3>
                 {{ post.excerpt | truncate: 160 }}
-                <div class="text-secondary">Added by 
+                <div class="text-secondary"><i>Added by 
                 {% assign author_count = post.authors | size %}
                 {% for author in post.authors limit: 1 %}
-                  <span class="text-primary"><i>{{ author }}</i></span>
+                  <span class="text-primary">{{ author }}</span></i>
                   {% if author_count > 1 %} and {{ author_count | minus: 1 }} more{% endif %}
                 {% endfor %}
               </div>
@@ -58,7 +58,7 @@ Developers, tech creators and software application enthusiasts like you frequent
                   {% endif %}
               </div>
               <div class="col-md-6 d-flex align-items-center">
-                <button class="btn btn-outline-primary ms-auto more-details" data-bs-toggle="modal" data-bs-target="#moreDetails">More details</button>
+                <button class="btn btn-outline-light shadow-sm bg-white text-secondary ms-auto more-details rounded-0" data-bs-toggle="modal" data-bs-target="#moreDetails">More details</button>
               </div>
               </div>
 
@@ -73,6 +73,8 @@ Developers, tech creators and software application enthusiasts like you frequent
 
 
   {{ content }}
+
+{% include add-projects.html %}
 
 <style>
   main{

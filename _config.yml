@@ -39,19 +39,21 @@ defaults:
     values:
       permalink: /:title
 
-
 disqus:
   shortname: freeware-projects
 
 header_pages:
+  - add-software-projects.md
+  - recommend-software-projects.md
   - about.md
-  
+
 # Build settings
 theme: minima
 plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
+
 
 # Exclude from processing.
 # The following items will not be processed, by default.

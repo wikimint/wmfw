@@ -23,7 +23,7 @@ email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
   Explore a wide range of free software and open-source projects at Freeware Projects Hub. Download, review, and share top-quality free applications for Windows, Mac, Linux, and more. Join our community of developers and tech enthusiasts today!
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://freeware.wikimint.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
 

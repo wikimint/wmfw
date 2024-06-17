@@ -71,6 +71,34 @@ Developers, tech creators and software application enthusiasts like you frequent
     </div>
   </div>
 
+  <h2 class="mt-5 mb-3">Popular tags under freeware projects</h2>
+  {% assign displayed_tags = "" | split: "" %}
+
+  {%- for post in site.projects limit:20 -%}
+    {% for tag in post.tags %}
+      {% unless displayed_tags contains tag %}
+        <span class="tag small d-inline-flex bg-white border border-secondary rounded-1 py-1 px-3 text-primary me-1 mb-2" data-{{ tag }}="tag">
+          {{ tag }}
+        </span>
+        {% assign displayed_tags = displayed_tags | push: tag %}
+      {% endunless %}
+    {% endfor %}
+  {%- endfor -%}
+  
+  <h2 class="mt-5 mb-3">Popular categories under freeware projects</h2>
+  {% assign displayed_cats = "" | split: "" %}
+
+  {%- for post in site.projects limit:20 -%}
+    {% for cat in post.cat %}
+      {% unless displayed_cats contains cat %}
+        <span class="cat small d-inline-flex bg-success-subtle border border-success rounded-1 py-1 px-3 text-success me-1 mb-2" data-{{ cat }}="cat">
+          {{ cat }}
+        </span>
+        {% assign displayed_cats = displayed_cats | push: cat %}
+      {% endunless %}
+    {% endfor %}
+  {%- endfor -%}
+
 
   {{ content }}
 

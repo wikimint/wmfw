@@ -77,9 +77,11 @@ layout: base
          <span class="small text-secondary">Tagged under</span>
          <div class="d-block mt-3 mb-4">
             {% for tag in page.tags %}
-            <span class="small d-inline-flex bg-secondary-subtle border-secondary rounded-5 py-1 px-3 text-secondary me-1 mb-2">
+            <a href="/tag#{{ tag | replace: " ", "-" | replace: "&", "-" }}">
+            <span class="small d-inline-flex bg-secondary-subtle border-secondary rounded-5 py-1 px-3 text-secondary me-1 mb-2" aria-label="{{ tag | replace: " ", "-" | replace: "&", "-" }}">
             {{ tag }}
-            </span>
+            </span> 
+            </a> 
             {% endfor %}
             {% endif %}
 
@@ -96,9 +98,11 @@ layout: base
 
             <div class="d-block mt-3 mb-4">
                {% for author in page.authors %}
+               <a href="/community?author={{ author }}">
                <span class="small d-inline-flex bg-primary-subtle border-primary rounded-1 py-1 px-3 text-primary me-1 mb-2">
                {{ author }}
                </span>
+              </a>
                {% endfor %}
                {% endif %}
          </div>

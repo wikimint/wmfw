@@ -18,7 +18,7 @@
   }
 
   function getQuery(variable) {
-    var query = window.location.search.substring(1);
+    var query = window.location.hash.substring(1);
     var vars = query.split('&');
 
     for (var i = 0; i < vars.length; i++) {
@@ -27,22 +27,23 @@
       if (pair[0] === variable) {
         return decodeURIComponent(pair[1].replace(/\+/g, '%20'));
       }
+      return decodeURIComponent(query.replace(/\+/g, '%20').replaceAll("-", '%20'));
     }
   }
 
   var searchTerm = getQuery('query');
-
   if (searchTerm) {
-    document.getElementById('search-box').setAttribute("value", searchTerm);
+    // document.getElementById('search-box').setAttribute("value", searchTerm);
 
     // Initalize lunr.js with the fields to search.
     // The title field is given more weight with the "boost" parameter
     var idx = lunr(function () {
+      this.field('tags', { boost: 10 });
       this.field('id');
-      this.field('title', { boost: 10 });
-      this.field('author');
-      this.field('category');
-      this.field('content');
+      // this.field('title');
+      // this.field('author');
+      // this.field('category');
+      // this.field('content');
 
       for (var key in window.store) { // Add the JSON we generated from the site content to Lunr.js.
         this.add({
@@ -50,7 +51,9 @@
           'title': window.store[key].title,
           'author': window.store[key].author,
           'category': window.store[key].category,
-          'content': window.store[key].content
+          'content': window.store[key].content,
+          'tags': window.store[key].tags
+
         });
       }
     });

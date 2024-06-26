@@ -32,11 +32,14 @@ Developers, tech creators and software application enthusiasts like you frequent
               </div>
               <div class="col-9">
                 <h3><a class="fs-5 fw-normal project-title" href="{{ post.url | relative_url }}" data-link="{{ post.link }}">{{ post.title }}</a></h3>
-                {{ post.excerpt | truncate: 160 }}
+                {{ post.excerpt | truncate: 100 }}
                 <div class="text-secondary"><i>Added by 
                 {% assign author_count = post.authors | size %}
                 {% for author in post.authors limit: 1 %}
-                  <span class="text-primary">{{ author }}</span></i>
+                <a href="/community?author={{ author }}">
+                  <span class="text-primary">{{ author }}</span>
+                </a>
+              </i>
                   {% if author_count > 1 %} and {{ author_count | minus: 1 }} more{% endif %}
                 {% endfor %}
               </div>
@@ -77,9 +80,11 @@ Developers, tech creators and software application enthusiasts like you frequent
   {%- for post in site.projects limit:20 -%}
     {% for tag in post.tags %}
       {% unless displayed_tags contains tag %}
+      <a href="/tag#{{ tag | replace: " ", "-" | replace: "&", "-" }}">
         <span class="tag small d-inline-flex bg-white border border-secondary rounded-1 py-1 px-3 text-primary me-1 mb-2" data-{{ tag }}="tag">
           {{ tag }}
         </span>
+      </a>
         {% assign displayed_tags = displayed_tags | push: tag %}
       {% endunless %}
     {% endfor %}
